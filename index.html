@@ -6,8 +6,501 @@
     <title>Lucas</title>
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link icon rel="icon" href="./img/icone.png" type="image/x-icon">
-    <link rel="stylesheet" href="./css2/estilo.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('../img/fundo-hexadecimal-para-redes.jpg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            
+  }
+  section,
+#home,
+#Sobre-mim,
+#Projetos,
+#habilidades,
+#Contato {
+  width: 100vw;
+  max-width: 100vw;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+
+/* Animação para os itens do navbar */
+.navbar ul li a,
+.navbar ul li  {
+  transition: color 0.2s;
+}
+
+
+.navbar ul li a {
+  position: relative;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Sublinhado animado só nos links do menu lateral */
+.navbar ul li a.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background: #fff;
+  transition: width 0.3s ease;
+}
+
+.navbar ul li a.nav-link {
+  position: relative;
+  color: #fff;
+  text-decoration: none;
+}
+
+.navbar ul li:hover a.nav-link::after {
+  width: 100%;
+}
+
+
+
+
+
+/* Projetos */
+  .project-image-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: auto;
+  }
+  .project-image-wrapper img {
+    width: 100%;  
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+  .project-image-wrapper:hover img {  
+    transform: scale(1.05);
+  }
+  .project-details {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    text-align: center;
+    
+  }
+  .project-details button{
+    width: 100px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 14px;
+  }
+
+  .project-image-wrapper:hover .project-details {
+    opacity: 1;
+  }
+
+
+/* Modal */
+  #meuModal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    margin-left: 110px;
+  }
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .close:hover, .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  
+  #habilidades ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 20px;
+    list-style-type: none;
+    padding: 0;
+    margin: 0 auto;
+    justify-items: center;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+}
+
+  #habilidades ul li{ 
+    border: solid 0.5px black;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    padding: 5px;
+    transition: transform 0.3s ease;
+    width: 100px;
+    text-align: center;
+    font-size: small;
+    font-weight: bold;
+    color: black;
+    margin: 5px;
+    
+  }
+  #habilidades ul li:hover{ 
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+    padding: 2px;
+
+  }
+  #Contato input{
+    border: solid 1px black;
+    border-radius: 3px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+
+  #Contato textarea{
+    border: solid 1px black;
+    border-radius: 3px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 205px !important;
+  }
+
+  #Contato button{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin-left: 40px !important;
+  }
+
+  #Contato button :hover{
+    transform: scale(1.2);
+    transition: transform 0.3s ease;
+  }
+  #Contato a:hover img,
+  #Contato a:hover h5,
+  #Contato a:hover p {
+  transform: scale(1.08);
+  transition: transform 0.2s;
+  filter: brightness(1.2);
+  cursor: pointer;
+}
+  
+
+  
+
+/* Estilo para o botão sanduíche */
+.menu-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: 1px solid white;
+    padding: 10px 15px;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+section h3,
+#Contato h3,
+#habilidades h3,
+#Projetos h3,
+#Sobre-mim h3,
+#home h3 {
+  background: #212529;
+  color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  padding: 6px 12px;
+  display: inline-block;
+  margin: 24px auto 16px auto !important;
+  font-weight: bold;
+  font-size: 10px!important;
+  text-align: center;
+  transition: box-shadow 0.2s, transform 0.2s;
+  margin-left: 200px !important;
+  width: 100px !important;
+
+}
+section h3:hover,
+#Contato h3:hover,
+#habilidades h3:hover,
+#Projetos h3:hover,
+#Sobre-mim h3:hover,
+#home h3:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.6);
+  transform: scale(1.04);
+  
+}
+
+
+/* Esconder a barra de navegação original em telas pequenas */
+@media (max-width: 574px) {
+    .navbar {
+        display: none !important;
+    }
+    .navbar.show-menu {
+        display: flex !important;
+        flex-direction: column;
+    }
+    .menu-toggle {
+        display: block !important;
+    }
+    
+   /* Home */
+  #home,
+  #home .container,
+  #home .row,
+  #home .col-md-6,
+  #home .col-10 {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: center !important;
+    justify-content: center !important;
+    align-items: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+  
+  }
+  #home{
+    margin-top: 50px !important;
+    margin-left: 20px !important;
+  }
+  #home .col-2,
+  #home .foto {
+    display: none !important;
+  }
+
+  /* Sobre-mim */
+  #Sobre-mim .row {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  #Sobre-mim .col-2 {
+    display: block !important;
+    width: 100vw !important;
+    margin: 0 auto !important;
+    order: -1; 
+    text-align: center !important;
+  }
+  #Sobre-mim .col-2 img {
+    margin: 20px auto 0 auto !important;
+    display: block !important;
+    width: 140px !important;
+  }
+  #Sobre-mim .col-10 {
+    width: 100vw !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+  }
+
+  /* Projetos */
+  #Projetos,
+  #Projetos .container,
+  #Projetos .row,
+  #Projetos .col-md-4,
+  #Projetos .col-sm-12,
+  #Projetos .offset-md-4 {
+    width: 500px !important;
+    max-width: 100vw !important;
+    margin: 5px !important;
+    padding: 0 !important;
+    text-align: center !important;
+    justify-content: center !important;
+    align-items: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  #Projetos .project-image-wrapper {
+    max-width: 90vw !important;
+    margin: 0 auto !important;
+  }
+  #Projetos h3 {
+    margin-left: 0 !important;
+    text-align: center !important;
+    width: 100vw !important;
+  }
+
+  /* Habilidades */
+  #habilidades ul {
+    margin-left: -20px !important;
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: auto;
+    gap: 10px;
+    width: 100vw !important;
+    justify-items: center;
+    align-items: center;
+    padding: 10px 0 !important;
+  }
+  #habilidades ul li {
+    width: 90px !important;
+    margin: 0 !important;
+  }
+
+  /* Contato */
+  #Contato .container,
+  #Contato .row,
+  #Contato .col-md-4,
+  #Contato .col-sm-12,
+  #Contato .offset-md-4 {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: center !important;
+    justify-content: center !important;
+    align-items: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  #Contato .mb-3 {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100vw !important;
+    gap: 10px;
+  }
+
+  #Contato input,
+  #Contato textarea {
+    width: 80vw !important;
+    max-width: 80vw !important;
+    margin: 0 auto !important;
+    display: block !important;
+    margin: 10px !important;
+    margin-left: -60px !important;
+  }
+  #Contato a{
+    text-decoration: none !important;
+  }
+  #Contato button {
+    width: 40vw !important;
+    max-width: 40vw !important;
+    margin: 0 auto !important;
+    display: block !important;
+    margin: 10px !important;
+    margin-left: 25px !important ;
+    
+  }
+
+  /* WhatsApp e Email lado a lado */
+  #Contato .col-md-4.col-sm-12.mb-4 > .p-3.text-dark.text-center > div {
+    display: inline-block !important;
+    vertical-align: top;
+    width: 48vw !important;
+    margin: 0 1vw !important;
+    text-align: center !important;
+  }
+  #Contato .col-md-4.col-sm-12.mb-4 > .p-3.text-dark.text-center {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    width: 100vw !important;
+    gap: 0 !important;
+  }
+  #Contato img {
+    width: 80px !important;
+    margin: 0 auto !important;
+    display: block !important;
+  }
+  
+  #meuModal {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    left: 0 !important;
+    margin-left: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .modal-content {
+    width: 95vw !important;
+    max-width: 95vw !important;
+    margin: 10vw auto !important;
+    padding: 10px !important;
+    border-radius: 10px !important;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .modal-content video {
+    width: 90vw !important;
+    max-width: 90vw !important;
+    height: auto !important;
+    margin-bottom: 10px !important;
+  }
+  .modal-content h3,
+  .modal-content p,
+  .modal-content ul {
+    text-align: center !important;
+    width: 100% !important;
+    
+    
+  }
+  .modal-content button {
+    margin-left: 0 !important;
+    margin-top: 10px !important;
+  }
+  section h3,
+#Contato h3,
+#Projetos h3,
+#Sobre-mim h3,
+#home h3{
+    margin-left: 0 !important;
+    width: 80px !important;
+    margin: 0 auto !important;
+}
+#habilidades h3{
+    margin-right: -100px  !important;
+    width: 80px !important;
+    margin: 0 auto !important;
+}
+
+  footer{
+    height: 100px !important;
+    width: 100% !important;
+  }
+
+}
+    </style>
 
     
 </head>
@@ -360,4 +853,5 @@ id="Projetos">
     </div>
   </div>
 </footer>
+
 </html>
